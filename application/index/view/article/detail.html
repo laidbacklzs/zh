@@ -1,0 +1,8 @@
+{layout name="public:layout"/}
+<div style="height: 160px">
+    <p>分类:{$artList.cate_id|getCateName} &nbsp;&nbsp;作者:{$artList.user_id|getUserName}&nbsp;&nbsp;
+        {$artList.create_time|date='Y-m-d H:i:s'}&nbsp;&nbsp;
+        阅读量:{$artList.pv}&nbsp;&nbsp;
+    </p>
+    <div>{:htmlspecialchars_decode($artList.content)}</div>
+</div>

@@ -1,0 +1,16 @@
+{layout name="public:layout"/}
+{volist name="artList" id="art"}
+<div style="height: 160px">
+    <img class="img-rounded" src="/uploads/{$art.title_img}" style="margin-right:30px;float: left;width: 200px;height:150px">
+    <h4><a href="{:url('article/detail',['id'=>$art.id])}">{$art.title}</a></h4>
+    <p>分类:{$art.cate_id|getCateName} &nbsp;&nbsp;作者:{$art.user_id|getUserName}&nbsp;&nbsp;{$art.create_time|date='Y-m-d H:i:s'}&nbsp;&nbsp;
+        阅读量:{$art.pv}&nbsp;&nbsp;
+    </p>
+    <div>{:htmlspecialchars_decode(getArtContent($art.content))}<a href="{:url('article/detail',['id'=>$art.id])}">...显示全文...</a></div>
+</div>
+<hr>
+{/volist}
+<div class="text-center">
+    {$artList|raw}
+</div>
+
